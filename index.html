@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-HK"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐷🥔 好風水好運屋指南</title>
@@ -25,23 +27,28 @@
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-3xl mx-auto px-4">
+        <div class="max-w-4xl mx-auto px-4">
             <div class="flex flex-col md:flex-row md:items-center justify-between py-3 md:h-16">
                 <div class="font-bold text-lg text-indigo-700 flex items-center gap-2 mb-3 md:mb-0">
                     <span>🐷🥔 好風水好運屋指南</span>
                 </div>
-                <div class="flex space-x-1 w-full md:w-auto bg-slate-100 p-1 rounded-lg">
-                    <button onclick="switchTab('highlights')" data-tab="highlights" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all bg-white text-indigo-600 shadow-sm">
+                <!-- Updated Navigation Menu with 4 items -->
+                <div class="flex space-x-1 w-full md:w-auto bg-slate-100 p-1 rounded-lg overflow-x-auto">
+                    <button onclick="switchTab('highlights')" data-tab="highlights" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all bg-white text-indigo-600 shadow-sm whitespace-nowrap">
                         <i data-lucide="sun" class="w-4 h-4"></i>
                         重點
                     </button>
-                    <button onclick="switchTab('details')" data-tab="details" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all text-slate-500 hover:text-slate-700">
+                    <button onclick="switchTab('details')" data-tab="details" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all text-slate-500 hover:text-slate-700 whitespace-nowrap">
                         <i data-lucide="map" class="w-4 h-4"></i>
                         詳情
                     </button>
-                    <button onclick="switchTab('luantou')" data-tab="luantou" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all text-slate-500 hover:text-slate-700">
+                    <button onclick="switchTab('luantou')" data-tab="luantou" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all text-slate-500 hover:text-slate-700 whitespace-nowrap">
                         <i data-lucide="mountain" class="w-4 h-4"></i>
                         巒頭
+                    </button>
+                    <button onclick="switchTab('northwater')" data-tab="northwater" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-all text-slate-500 hover:text-slate-700 whitespace-nowrap">
+                        <i data-lucide="waves" class="w-4 h-4"></i>
+                        向北見水
                     </button>
                 </div>
             </div>
@@ -286,7 +293,7 @@
         </div>
 
         <!-- ========================================== -->
-        <!-- VIEW 3: LUAN TOU (UPDATED CONTENT) -->
+        <!-- VIEW 3: LUAN TOU -->
         <!-- ========================================== -->
         <div id="view-luantou" class="view-section hidden fade-in space-y-10">
             
@@ -520,8 +527,135 @@
                         </div>
                     </div>
                 </div>
-
             </section>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 4: NORTH + WATER (NEW) -->
+        <!-- ========================================== -->
+        <div id="view-northwater" class="view-section hidden fade-in space-y-8">
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-bold text-slate-900 flex items-center justify-center gap-3">
+                    <i data-lucide="waves" class="w-8 h-8 text-blue-500"></i>
+                    向北見水
+                </h1>
+                <p class="text-slate-600 mt-2 text-sm max-w-lg mx-auto italic">
+                    以下是為你們精選的<strong>「向北 + 真水（海景）」</strong>地區名單，這些地方完美符合你們「震木命 + 喜水」的富貴格局。
+                </p>
+            </div>
+
+            <!-- 1. Island East -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-blue-50 px-5 py-3 border-b border-blue-100">
+                    <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                        <i data-lucide="building-2" class="w-4 h-4 text-indigo-600"></i>
+                        1. 港島東區（北角、鰂魚涌、西灣河）
+                    </h3>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-slate-600 mb-4">這是最經典的「坐南向北」格局。整個港島北岸都是面向維多利亞港，而維港就在港島的<strong>北方</strong>。</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <strong class="text-indigo-700 text-sm block">風水特點</strong>
+                            <p class="text-sm text-slate-600 leading-relaxed">這裡的水是「維港水」，水流急、有船隻穿梭。這叫<strong>「有情活水」</strong>，主<strong>財源滾滾、賺錢快、商業活動頻繁</strong>。非常適合做生意或拼搏事業的年輕夫婦。</p>
+                        </div>
+                        <div class="space-y-2 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong class="text-slate-800 text-sm block">推薦屋苑</strong>
+                            <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4">
+                                <li><strong>嘉亨灣 (Grand Promenade)：</strong>西灣河地標，很多單位正北/東北向海，景觀極佳。</li>
+                                <li><strong>太古城 (Tai Koo Shing)：</strong>海景花園那幾期（如海棠閣等），很多是向北/東北見海。</li>
+                                <li><strong>逸樺園 / 康怡花園（部分）：</strong>鰂魚涌一帶。</li>
+                                <li><strong>城市花園 / 和富中心：</strong>北角臨海，正北海景。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Ma On Shan -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-emerald-50 px-5 py-3 border-b border-emerald-100">
+                    <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                        <i data-lucide="trees" class="w-4 h-4 text-emerald-600"></i>
+                        2. 馬鞍山 & 白石角（吐露港沿岸）
+                    </h3>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-slate-600 mb-4">如果你喜歡環境清幽一點，不想太像市區那麼擁擠，這裡是首選。</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <strong class="text-emerald-700 text-sm block">風水特點</strong>
+                            <p class="text-sm text-slate-600 leading-relaxed">這裡面向的是「吐露港」。吐露港的水比維港平靜，像一個聚寶盆。這叫<strong>「聚財水」</strong>，主<strong>積聚財富、利儲蓄、利健康</strong>。對於你們（特別是男朋友忌火）來說，這裡的氣場比較平和舒服。</p>
+                        </div>
+                        <div class="space-y-2 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong class="text-slate-800 text-sm block">推薦屋苑</strong>
+                            <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4">
+                                <li><strong>迎海 (Double Cove)：</strong>很多期數都面向吐露港，方向多為北或東北。</li>
+                                <li><strong>天宇海 / 海典居：</strong>馬鞍山沿海一帶。</li>
+                                <li><strong>逸瓏灣 / 天賦海灣：</strong>白石角豪宅區，大部分單位面向吐露港（向北/東北）。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Tung Chung -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-sky-50 px-5 py-3 border-b border-sky-100">
+                    <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                        <i data-lucide="plane" class="w-4 h-4 text-sky-600"></i>
+                        3. 東涌北（Tung Chung North）
+                    </h3>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-slate-600 mb-4">這是一個被低估的「向北水」區域。</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <strong class="text-sky-700 text-sm block">風水特點</strong>
+                            <p class="text-sm text-slate-600 leading-relaxed">東涌北面是機場海峽，視野極度開揚。這裡的水非常廣闊，代表<strong>志向遠大、海外發展</strong>。如果你們的工作與航空、物流、或外國公司有關，這裡非常旺。</p>
+                        </div>
+                        <div class="space-y-2 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong class="text-slate-800 text-sm block">推薦屋苑</strong>
+                            <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4">
+                                <li><strong>海堤灣畔 (Seaview Crescent)</strong></li>
+                                <li><strong>藍天海岸 (Coastal Skyline)</strong></li>
+                                <li><strong>昇薈 (The Visionary)</strong></li>
+                                <li class="italic text-xs text-slate-500">注意：部分單位可能看到飛機起降，聲音煞要留意，但景觀絕對是正北水。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Ap Lei Chau -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-indigo-50 px-5 py-3 border-b border-indigo-100">
+                    <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                        <i data-lucide="anchor" class="w-4 h-4 text-indigo-600"></i>
+                        4. 鴨脷洲（深灣軒 / 南灣）
+                    </h3>
+                </div>
+                <div class="p-5">
+                    <p class="text-sm text-slate-600 mb-4">雖然在港島南區，但鴨脷洲是一個島。它的<strong>北面</strong>剛好面向香港仔避風塘和深灣。</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <strong class="text-indigo-700 text-sm block">風水特點</strong>
+                            <p class="text-sm text-slate-600 leading-relaxed">這裡的水是「避風塘水」，非常平靜，沒有大風浪。這在風水上稱為<strong>「靜水」</strong>，最利<strong>思考、專業人士、穩定收入</strong>。</p>
+                        </div>
+                        <div class="space-y-2 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <strong class="text-slate-800 text-sm block">推薦屋苑</strong>
+                            <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4">
+                                <li><strong>深灣軒 (Sham Wan Towers)：</strong>極高層向北/東北，望向深灣遊艇會及香港仔海峽。</li>
+                                <li><strong>南灣 (Larvotto)：</strong>部分座向是望向海峽（偏北/西北）。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -551,5 +685,5 @@
         // 預設顯示 Highlights
         switchTab('highlights');
     </script>
-
-</body></html>
+</body>
+</html>
