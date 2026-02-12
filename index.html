@@ -1,0 +1,555 @@
+<!DOCTYPE html><html lang="zh-HK"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐷🥔 好風水好運屋指南</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-900 pb-20">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between py-3 md:h-16">
+                <div class="font-bold text-lg text-indigo-700 flex items-center gap-2 mb-3 md:mb-0">
+                    <span>🐷🥔 好風水好運屋指南</span>
+                </div>
+                <div class="flex space-x-1 w-full md:w-auto bg-slate-100 p-1 rounded-lg">
+                    <button onclick="switchTab('highlights')" data-tab="highlights" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all bg-white text-indigo-600 shadow-sm">
+                        <i data-lucide="sun" class="w-4 h-4"></i>
+                        重點
+                    </button>
+                    <button onclick="switchTab('details')" data-tab="details" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all text-slate-500 hover:text-slate-700">
+                        <i data-lucide="map" class="w-4 h-4"></i>
+                        詳情
+                    </button>
+                    <button onclick="switchTab('luantou')" data-tab="luantou" class="tab-btn flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all text-slate-500 hover:text-slate-700">
+                        <i data-lucide="mountain" class="w-4 h-4"></i>
+                        巒頭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto px-4 py-8">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: HIGHLIGHTS -->
+        <!-- ========================================== -->
+        <div id="view-highlights" class="view-section fade-in">
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-bold text-slate-900 flex items-center justify-center gap-3">
+                    <i data-lucide="sun" class="w-8 h-8 text-amber-500"></i>
+                    Checklist
+                </h1>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Item 1 -->
+                <div class="bg-white rounded-xl p-5 pt-7 border border-slate-100 shadow-sm relative overflow-hidden group hover:border-indigo-200 transition-colors">
+                    <div class="absolute top-0 left-0 bg-indigo-600 text-white font-bold px-3 py-1 rounded-br-lg text-sm z-10 shadow-sm">1</div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-indigo-900 mb-3">客廳景觀</h3>
+                            <div class="flex flex-col gap-2 text-sm">
+                                <div class="flex items-start gap-2 text-emerald-700 bg-emerald-50/50 p-2 rounded">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                                    <span><strong>首選：</strong>見水 (海景 / 河景 / 大型泳池)</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-indigo-700 bg-indigo-50/50 p-2 rounded">
+                                    <i data-lucide="check" class="w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                                    <span><strong>次選：</strong>開揚遠景、園林、大片空地</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-rose-700 bg-rose-50/50 p-2 rounded">
+                                    <i data-lucide="x" class="w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                                    <span><strong>Skip：</strong>面壁、樓望樓太近、後巷、地盤</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white rounded-xl p-5 pt-7 border border-slate-100 shadow-sm relative overflow-hidden group hover:border-indigo-200 transition-colors">
+                    <div class="absolute top-0 left-0 bg-indigo-600 text-white font-bold px-3 py-1 rounded-br-lg text-sm z-10 shadow-sm">2</div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-indigo-900 mb-3">單位形狀 (Floor Plan)</h3>
+                            <div class="flex flex-col gap-2 text-sm">
+                                <div class="flex items-center gap-2 text-emerald-700 bg-emerald-50/50 p-2 rounded">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                    <span><strong>必須：</strong>四四方方</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-rose-700 bg-rose-50/50 p-2 rounded">
+                                    <i data-lucide="x" class="w-4 h-4"></i>
+                                    <span><strong>Skip：</strong>鑽石廳、三角形、嚴重缺角</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white rounded-xl p-5 pt-7 border border-slate-100 shadow-sm relative overflow-hidden group hover:border-indigo-200 transition-colors">
+                    <div class="absolute top-0 left-0 bg-indigo-600 text-white font-bold px-3 py-1 rounded-br-lg text-sm z-10 shadow-sm">3</div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-indigo-900 mb-3">客廳主窗方向</h3>
+                            <div class="flex items-center gap-3 bg-indigo-50 p-3 rounded-lg border border-indigo-100">
+                                <i data-lucide="compass" class="w-6 h-6 text-indigo-600"></i>
+                                <span class="text-indigo-900 font-medium">一定要向「正北」</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-white rounded-xl p-5 pt-7 border border-slate-100 shadow-sm relative overflow-hidden group hover:border-indigo-200 transition-colors">
+                    <div class="absolute top-0 left-0 bg-indigo-600 text-white font-bold px-3 py-1 rounded-br-lg text-sm z-10 shadow-sm">4</div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-indigo-900 mb-3">採光與樓層</h3>
+                            <div class="flex flex-col gap-2 text-sm">
+                                <div class="flex items-center gap-2 text-emerald-700 bg-emerald-50/50 p-2 rounded">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
+                                    <span><strong>必須：</strong>高層、開揚、光猛</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-rose-700 bg-rose-50/50 p-2 rounded">
+                                    <i data-lucide="x" class="w-4 h-4"></i>
+                                    <span><strong>Skip：</strong>陰暗、無自然光</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="bg-white rounded-xl p-5 pt-7 border border-slate-100 shadow-sm relative overflow-hidden group hover:border-indigo-200 transition-colors">
+                    <div class="absolute top-0 left-0 bg-indigo-600 text-white font-bold px-3 py-1 rounded-br-lg text-sm z-10 shadow-sm">5</div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-indigo-900 mb-3">主睡房佈局</h3>
+                            <div class="grid grid-cols-2 gap-3 text-sm">
+                                <div class="bg-slate-50 p-2 rounded border border-slate-100">
+                                    <span class="block text-xs text-slate-400 mb-1">房間位置</span>
+                                    <span class="font-medium text-slate-800">東 / 東南</span>
+                                </div>
+                                <div class="bg-slate-50 p-2 rounded border border-slate-100">
+                                    <span class="block text-xs text-slate-400 mb-1">床頭朝向</span>
+                                    <span class="font-medium text-slate-800">向北 (首選) / 向東</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: DETAILS -->
+        <!-- ========================================== -->
+        <div id="view-details" class="view-section hidden fade-in space-y-8">
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-bold text-slate-900 flex items-center justify-center gap-3">
+                    <i data-lucide="map" class="w-8 h-8 text-indigo-600"></i>
+                    詳情分析
+                </h1>
+            </div>
+
+            <!-- Level 1 -->
+            <section>
+                <div class="flex items-center gap-3 mb-3 border-b pb-2 border-slate-200">
+                    <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium border bg-rose-100 text-rose-800 border-rose-200">第一級</span>
+                    <h2 class="text-xl font-bold text-slate-800">定生死（窗外巒頭與屋形）</h2>
+                </div>
+                <p class="text-slate-600 text-sm mb-4 italic">這是最不可妥協的「硬指標」。如果窗外環境惡劣或屋形缺角，風水基底已破，直接 Skip。</p>
+                
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                        <h3 class="font-bold text-base mb-3 text-slate-800">1. 客廳景觀 (外巒頭)</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 flex-shrink-0 text-emerald-600"></i>
+                                <div class="text-slate-700 text-sm leading-relaxed"><strong class="block text-slate-900 mb-0.5">首選 (大吉)</strong>見水（海景 / 河景 / 大型泳池）配合「向北」，北方屬水，若窗外見真水，為「坎宮見水」，是大旺財運的格局。</div>
+                            </li>
+                            <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 flex-shrink-0 text-emerald-600"></i>
+                                <div class="text-slate-700 text-sm leading-relaxed"><strong class="block text-slate-900 mb-0.5">次選 (中吉)</strong>開揚遠景、園林、大片空地（明堂廣闊）。</div>
+                            </li>
+                            <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                <i data-lucide="x-circle" class="w-5 h-5 mt-0.5 flex-shrink-0 text-rose-600"></i>
+                                <div class="text-slate-700 text-sm leading-relaxed"><strong class="block text-slate-900 mb-0.5">絕對避開 (大凶)</strong>面壁（明堂受阻）、樓望樓太近（逼壓煞）、後巷（穢氣）、地盤（動土煞）。</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                        <h3 class="font-bold text-base mb-3 text-slate-800">2. 單位圖則 (內巒頭)</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 flex-shrink-0 text-emerald-600"></i>
+                                <div class="text-slate-700 text-sm leading-relaxed">
+                                    <strong class="block text-slate-900 mb-0.5">必須具備</strong>
+                                    四四方方、無缺角。
+                                    <span class="text-xs text-slate-500 block mt-1">風水備註：你們是情侶居住，屋形方正代表關係穩固。嚴禁缺「西北角」（傷男）或「西南角」（傷女）。</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                <i data-lucide="x-circle" class="w-5 h-5 mt-0.5 flex-shrink-0 text-rose-600"></i>
+                                <div class="text-slate-700 text-sm leading-relaxed"><strong class="block text-slate-900 mb-0.5">絕對避開</strong>鑽石廳、三角形、L型缺角嚴重、三尖八角。</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Level 2 -->
+            <section>
+                <div class="flex items-center gap-3 mb-3 border-b pb-2 border-slate-200">
+                    <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium border bg-amber-100 text-amber-800 border-amber-200">第二級</span>
+                    <h2 class="text-xl font-bold text-slate-800">定氣場（坐向與採光）</h2>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-bold text-base mb-3 text-slate-800">3. 客廳主窗方向 (理氣坐向)</h3>
+                            <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 flex-shrink-0 text-emerald-600"></i>
+                                <div class="text-slate-700 text-sm leading-relaxed">
+                                    <strong class="block text-slate-900 mb-0.5">指定要求</strong>
+                                    一定要向「正北」(以客廳最大、最開揚的窗為準)。
+                                </div>
+                            </li>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base mb-3 text-slate-800">4. 採光與樓層 (陰陽平衡)</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 flex-shrink-0 text-emerald-600"></i>
+                                    <div class="text-slate-700 text-sm leading-relaxed"><strong class="block text-slate-900 mb-0.5">必須具備</strong>高層、開揚、光猛（陽氣足）。</div>
+                                </li>
+                                <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                    <i data-lucide="x-circle" class="w-5 h-5 mt-0.5 flex-shrink-0 text-rose-600"></i>
+                                    <div class="text-slate-700 text-sm leading-relaxed"><strong class="block text-slate-900 mb-0.5">絕對避開</strong>低層陰暗、無自然光。</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Level 3 -->
+            <section>
+                <div class="flex items-center gap-3 mb-3 border-b pb-2 border-slate-200">
+                    <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium border bg-emerald-100 text-emerald-800 border-emerald-200">第三級</span>
+                    <h2 class="text-xl font-bold text-slate-800">定細節（睡房佈局）</h2>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+                    <h3 class="font-bold text-base mb-3 text-slate-800">5. 主睡房佈局 (人屋配合)</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 flex-shrink-0 text-emerald-600"></i>
+                                <div class="text-slate-700 text-sm leading-relaxed">
+                                    <strong class="block text-slate-900 mb-0.5">睡房位置</strong>
+                                    位於全屋的「東」或「東南」方 (首選)。
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 mb-3 last:mb-0">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 mt-0.5 flex-shrink-0 text-emerald-600"></i>
+                                <div class="text-slate-700 text-sm leading-relaxed"><strong class="block text-slate-900 mb-0.5">床頭方向</strong>可擺放「向北」(首選) 或「向東」。</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: LUAN TOU (UPDATED CONTENT) -->
+        <!-- ========================================== -->
+        <div id="view-luantou" class="view-section hidden fade-in space-y-10">
+            
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-bold text-slate-900 flex items-center justify-center gap-3">
+                    <i data-lucide="mountain" class="w-8 h-8 text-emerald-600"></i>
+                    巒頭
+                </h1>
+            </div>
+
+            <!-- External Luan Tou -->
+            <section class="space-y-6">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-3">
+                    <span class="bg-slate-800 text-white text-xs px-2 py-1 rounded">PART 1</span>
+                    <h2 class="text-lg font-bold text-slate-800">外在巒頭（窗外的世界）</h2>
+                </div>
+                <p class="text-slate-600 text-sm italic">這是你無法改變的，所以一票否決權在這裡。</p>
+
+                <!-- 1. Water Analysis -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-50 px-5 py-3 border-b border-slate-100">
+                        <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                            <i data-lucide="waves" class="w-4 h-4 text-blue-500"></i>
+                            1. 水的形態
+                        </h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-sm text-slate-600 mb-4">清單首選是「見水」，但水也有分好壞：</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Good Water -->
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-2 text-emerald-700 font-bold text-sm border-b border-emerald-100 pb-2">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4"></i> 有情水（大吉）
+                                </div>
+                                <ul class="space-y-4">
+                                    <li class="text-sm text-slate-600">
+                                        <strong class="block text-slate-900 text-xs uppercase tracking-wide mb-1">聚水</strong>
+                                        像一個池塘、平靜的海灣，水面平靜或緩慢流動。這代表財運是「存得住」的。
+                                    </li>
+                                    <li class="text-sm text-slate-600">
+                                        <strong class="block text-slate-900 text-xs uppercase tracking-wide mb-1">環抱水（玉帶環腰）</strong>
+                                        河流或道路像一條腰帶一樣「環抱」著你的大廈。這是最頂級的旺財水。
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Bad Water -->
+                            <div class="space-y-3 md:border-l md:border-slate-100 md:pl-6">
+                                <div class="flex items-center gap-2 text-rose-700 font-bold text-sm border-b border-rose-100 pb-2">
+                                    <i data-lucide="x-circle" class="w-4 h-4"></i> 無情水（大凶）
+                                </div>
+                                <ul class="space-y-4">
+                                    <li class="text-sm text-slate-600">
+                                        <strong class="block text-slate-900 text-xs uppercase tracking-wide mb-1">直沖水</strong>
+                                        河流或直路直直衝向你的大廈。
+                                    </li>
+                                    <li class="text-sm text-slate-600">
+                                        <strong class="block text-slate-900 text-xs uppercase tracking-wide mb-1">反弓水</strong>
+                                        河流或道路像一張弓的背面對著你（環抱水的相反）。這代表財運過門不入，甚至會破財、受傷。
+                                    </li>
+                                    <li class="text-sm text-slate-600">
+                                        <strong class="block text-slate-900 text-xs uppercase tracking-wide mb-1">割腳水</strong>
+                                        水流極急且離大廈太近，感覺地基不穩。這代表財來財去，大起大落。
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Sha Qi -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-50 px-5 py-3 border-b border-slate-100">
+                        <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                            <i data-lucide="sword" class="w-4 h-4 text-rose-500"></i>
+                            2. 常見外在形煞 (必須避開)
+                        </h3>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-sm text-slate-600 mb-4">站在客廳窗前，往外看，如果有以下物體直直對著你，就是「煞氣」：</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-rose-50/50 rounded-lg p-4 border border-rose-100">
+                                <strong class="block text-rose-700 text-sm mb-2 flex items-center gap-2">
+                                    <i data-lucide="x" class="w-4 h-4"></i> 天斬煞（極凶）
+                                </strong>
+                                <p class="text-sm text-slate-600 leading-relaxed">對面兩座大廈靠得很近，中間留了一條窄窄的縫隙，這條縫隙正對著你的窗戶。這像一把刀劈過來，主血光之災、手術。</p>
+                            </div>
+                            <div class="bg-rose-50/50 rounded-lg p-4 border border-rose-100">
+                                <strong class="block text-rose-700 text-sm mb-2 flex items-center gap-2">
+                                    <i data-lucide="x" class="w-4 h-4"></i> 壁刀煞（角煞）
+                                </strong>
+                                <p class="text-sm text-slate-600 leading-relaxed">對面大廈的「牆角」尖尖的對著你的窗。這會導致身體痛症、意外。</p>
+                            </div>
+                            <div class="bg-rose-50/50 rounded-lg p-4 border border-rose-100">
+                                <strong class="block text-rose-700 text-sm mb-2 flex items-center gap-2">
+                                    <i data-lucide="x" class="w-4 h-4"></i> 探頭山（小人探頭）
+                                </strong>
+                                <p class="text-sm text-slate-600 leading-relaxed">前面有一座大廈，後面又露出另一座大廈的一小截頭。這代表容易招小人、被算計。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Four Spirits -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-50 px-5 py-3 border-b border-slate-100">
+                        <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                            <i data-lucide="layout" class="w-4 h-4 text-indigo-500"></i>
+                            3. 靠山與明堂（四靈局）
+                        </h3>
+                    </div>
+                    <div class="p-5 grid md:grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <div class="bg-emerald-50 p-3 rounded-full h-fit"><i data-lucide="arrow-down-to-line" class="w-5 h-5 text-emerald-600"></i></div>
+                            <div>
+                                <strong class="text-sm text-emerald-800 block mb-2">後有靠（玄武）</strong>
+                                <p class="text-sm text-slate-600 leading-relaxed">你住的大廈後面，最好有其他大廈或者山，代表「有靠山」，事業穩固。如果你住的是全區最高的樓，後面空蕩蕩，叫「孤峰獨聳」，雖然風景好，但容易變得孤僻、無助（尤其是你們兩個都需要貴人的情況下）。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="bg-emerald-50 p-3 rounded-full h-fit"><i data-lucide="arrow-up-from-line" class="w-5 h-5 text-emerald-600"></i></div>
+                            <div>
+                                <strong class="text-sm text-emerald-800 block mb-2">前有照（朱雀）</strong>
+                                <p class="text-sm text-slate-600 leading-relaxed">窗前要有開闊的空間（明堂），不要一開窗就貼著對面樓。明堂越寬闊，代表你們的發展前景越大。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Internal Luan Tou -->
+            <section class="space-y-6">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-3 mt-10">
+                    <span class="bg-slate-800 text-white text-xs px-2 py-1 rounded">PART 2</span>
+                    <h2 class="text-lg font-bold text-slate-800">內在巒頭（屋內的佈局）</h2>
+                </div>
+                <p class="text-slate-600 text-sm italic">這是你可以透過裝修微調的，但有些硬傷很難改。</p>
+
+                <!-- 1. Doors -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-50 px-5 py-3 border-b border-slate-100">
+                        <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                            <i data-lucide="door-open" class="w-4 h-4 text-indigo-500"></i>
+                            1. 大門的禁忌
+                        </h3>
+                    </div>
+                    <div class="p-5 space-y-6">
+                        <!-- Case A -->
+                        <div class="grid md:grid-cols-3 gap-4 items-start">
+                            <div class="md:col-span-2">
+                                <strong class="text-rose-600 text-sm mb-1 flex items-center gap-1">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4"></i> 穿堂煞
+                                </strong>
+                                <p class="text-sm text-slate-600 leading-relaxed">一打開大門，直接看到正對面的窗戶或露台。這叫「直通到底」，財氣剛進門就從窗戶溜走了，存不住錢。</p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-xs text-blue-800">
+                                <span class="font-bold block mb-1">💡 解救：</span>
+                                設玄關或屏風遮擋。
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-slate-100"></div>
+
+                        <!-- Case B -->
+                        <div class="grid md:grid-cols-3 gap-4 items-start">
+                            <div class="md:col-span-2">
+                                <strong class="text-rose-600 text-sm mb-1 flex items-center gap-1">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4"></i> 開門見廁
+                                </strong>
+                                <p class="text-sm text-slate-600 leading-relaxed">一進大門直接對著廁所門。穢氣沖財氣，影響健康和財運。</p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-xs text-blue-800">
+                                <span class="font-bold block mb-1">💡 解救：</span>
+                                <ul class="list-disc pl-4 space-y-1 mt-1">
+                                    <li><strong>隨手關門（必須做）：</strong>養成習慣，廁所門和房門永遠保持關閉。廁所內要開抽氣扇，保持乾燥。</li>
+                                    <li><strong>門簾（風水簾）：</strong>在廁所門掛一個長度過膝的門簾（日式布簾即可），顏色可以選素色，阻擋穢氣直衝。</li>
+                                    <li><strong>隱形門（裝修法）：</strong>裝修時，將廁所門做成「暗門」（隱形門），與牆身融為一體，從視覺上「消失」，這是設計師最常用的化解法。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Kitchen -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-50 px-5 py-3 border-b border-slate-100">
+                        <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                            <i data-lucide="flame" class="w-4 h-4 text-orange-500"></i>
+                            2. 廚房與廁所（水火不留情）
+                        </h3>
+                    </div>
+                    <div class="p-5 space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-rose-50/50 rounded-lg p-4 border border-rose-100">
+                                <strong class="block text-rose-700 text-sm mb-2 flex items-center gap-2">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4"></i> 水火相沖
+                                </strong>
+                                <p class="text-sm text-slate-600 leading-relaxed">廚房裡，爐頭（火）和洗手盆（水）正對著，或者緊貼在一起。這會導致夫妻容易吵架，女主人健康受損。</p>
+                            </div>
+                            <div class="bg-rose-50/50 rounded-lg p-4 border border-rose-100">
+                                <strong class="block text-rose-700 text-sm mb-2 flex items-center gap-2">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4"></i> 廁所居中
+                                </strong>
+                                <p class="text-sm text-slate-600 leading-relaxed">廁所剛好在全屋的正中心（中宮）。中宮是房子的心臟，心臟有穢氣，全家運勢都差，心血管容易出問題。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Beams -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-50 px-5 py-3 border-b border-slate-100">
+                        <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                            <i data-lucide="align-vertical-space-around" class="w-4 h-4 text-indigo-500"></i>
+                            3. 橫樑壓頂（隱形壓力）
+                        </h3>
+                    </div>
+                    <div class="p-5 grid md:grid-cols-3 gap-4 items-start">
+                        <div class="md:col-span-2">
+                            <strong class="text-rose-600 text-sm mb-1 flex items-center gap-1">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i> 樑壓床/沙發
+                            </strong>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-2">睡床或客廳沙發上方有明顯的橫樑。</p>
+                            <ul class="list-disc pl-4 text-sm text-slate-600 space-y-1">
+                                <li><strong>壓頭：</strong>頭痛、失眠。</li>
+                                <li><strong>壓胸：</strong>氣悶、壓力大。</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-xs text-blue-800">
+                            <span class="font-bold block mb-1">💡 解救：</span>
+                            做假天花包住，或避開擺放。
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </main>
+    
+    <footer class="text-center text-slate-400 text-xs py-8 border-t border-slate-200 mt-8">
+        <p>🐷🥔 好風水好運屋指南 • 僅供參考</p>
+    </footer>
+
+    <script>
+        // 初始化 Icons
+        lucide.createIcons();
+
+        // Tab 切換邏輯
+        function switchTab(tabId) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById('view-' + tabId).classList.remove('hidden');
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-600', 'shadow-sm');
+                btn.classList.add('text-slate-500', 'hover:text-slate-700');
+            });
+            const activeBtn = document.querySelector(`[data-tab="${tabId}"]`);
+            activeBtn.classList.remove('text-slate-500', 'hover:text-slate-700');
+            activeBtn.classList.add('bg-white', 'text-indigo-600', 'shadow-sm');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // 預設顯示 Highlights
+        switchTab('highlights');
+    </script>
+
+</body></html>
